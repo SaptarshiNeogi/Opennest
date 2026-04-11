@@ -32,6 +32,21 @@ interface Project {
 
 const projects: Project[] = [
   { 
+    slug: 'samay-raina-delhi',
+    title: "Samay Raina's Delhi Reel", 
+    category: 'Reel Content', 
+    img: 'https://res.cloudinary.com/di2oqwgqv/image/upload/v1775927382/76ed8ea0-9db9-4749-89bd-f9dc9ba5f30d_pl6mgt.png',
+    description: "Editor & Designer of Samay Raina's viral Delhi Reel. A cinematic journey through the heart of the capital.",
+    video: 'https://res.cloudinary.com/di2oqwgqv/video/upload/v1775922932/3764892086818755703_upylbn.mp4',
+    aspectRatio: '4/3',
+    photos: [],
+    details: {
+      client: 'Samay Raina',
+      year: '2025',
+      services: 'Video Editing, Motion Graphics, Color Grading'
+    }
+  },
+  { 
     slug: 'csb-cafe',
     title: 'CSB (Cafe)', 
     category: 'Product Photoshoots', 
@@ -188,7 +203,11 @@ const ProjectDetail = () => {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className={`rounded-3xl overflow-hidden shadow-2xl bg-black ${project.aspectRatio === '9/16' ? 'aspect-[9/16] max-w-md mx-auto' : 'aspect-video'}`}
+                className={`rounded-3xl overflow-hidden shadow-2xl bg-black ${
+                  project.aspectRatio === '9/16' ? 'aspect-[9/16] max-w-md mx-auto' : 
+                  project.aspectRatio === '4/3' ? 'aspect-[4/3] max-w-4xl mx-auto' : 
+                  'aspect-video'
+                }`}
               >
                 <video 
                   src={project.video} 
@@ -461,30 +480,60 @@ const Hero = () => {
 };
 
 const About = () => {
+  const marqueeImages = [
+    "https://res.cloudinary.com/di2oqwgqv/image/upload/v1775927382/76ed8ea0-9db9-4749-89bd-f9dc9ba5f30d_pl6mgt.png",
+    "https://res.cloudinary.com/di2oqwgqv/image/upload/v1775927402/4411C7D8-7B57-40DD-8D48-92E4B41F88DE_rqb0qy.png",
+    "https://res.cloudinary.com/di2oqwgqv/image/upload/v1775927381/IMG_3590_kjcqkk.png",
+    "https://res.cloudinary.com/di2oqwgqv/image/upload/v1775927406/9FCB03BD-032F-4E5D-BD87-84B031E84E82_mxqdyp.png",
+    "https://res.cloudinary.com/di2oqwgqv/image/upload/v1775928306/IMG_7198_br0mnt.png",
+    "https://res.cloudinary.com/di2oqwgqv/image/upload/v1775928309/IMG_7135_vwz8ln.png",
+    "https://res.cloudinary.com/di2oqwgqv/image/upload/v1775928308/IMG_7136_iah3hs.png"
+  ];
+
   return (
-    <section id="about" className="section-padding overflow-hidden">
-      <div className="max-w-4xl mx-auto text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+    <section id="about" className="py-24 overflow-hidden bg-primary">
+      {/* Text Marquee: Left to Right */}
+      <div className="relative flex overflow-x-hidden mb-12">
+        <motion.div 
+          className="flex whitespace-nowrap py-4"
+          animate={{ x: ["-50%", "0%"] }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
         >
-          <h2 className="text-4xl md:text-6xl font-display font-bold mb-8 leading-tight">
-            A Nest Where <br />
-            <span className="text-accent">Brands Grow</span>
-          </h2>
-          <div className="space-y-6 text-white/70 text-lg leading-relaxed">
-            <p>
-              OpenNest helps brands, shops, and startups improve their digital visibility. We combine web design, photoshoots, and social content so businesses can look professional online.
-            </p>
-            <p className="font-display text-white italic text-2xl border-l-4 border-accent pl-6 py-2 inline-block">
-              "All brands deserve big visibility."
-            </p>
-            <p>
-              We don't just create content; we build digital identities that demand attention. Our philosophy is rooted in the belief that every brand has a story worth telling cinematically.
-            </p>
-          </div>
+          {[...Array(6)].map((_, i) => (
+            <span key={i} className="text-2xl md:text-5xl font-display italic font-bold text-white/90 mx-12">
+              Editor & Designer Of SAMAY RAINA's Delhi Reel
+            </span>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Button */}
+      <div className="flex justify-center mb-16">
+        <Link 
+          to="/project/samay-raina-delhi" 
+          className="glow-btn bg-accent text-white px-12 py-5 rounded-full font-bold text-lg hover:scale-105 transition-transform z-10 shadow-[0_0_30px_var(--color-accent-glow)]"
+        >
+          VIEW WORK
+        </Link>
+      </div>
+
+      {/* Image Marquee: Right to Left */}
+      <div className="relative flex overflow-x-hidden">
+        <motion.div 
+          className="flex whitespace-nowrap gap-8"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+        >
+          {[...marqueeImages, ...marqueeImages].map((img, i) => (
+            <div key={i} className="w-40 md:w-56 flex-shrink-0 rounded-2xl overflow-hidden shadow-2xl border border-white/5">
+              <img 
+                src={img} 
+                alt="Samay Raina Delhi Reel" 
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+          ))}
         </motion.div>
       </div>
     </section>
