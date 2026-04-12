@@ -35,11 +35,11 @@ const projects: Project[] = [
     slug: 'samay-raina-delhi',
     title: "Samay Raina's Delhi Reel", 
     category: 'Reel Content', 
-    img: 'https://res.cloudinary.com/di2oqwgqv/image/upload/v1775927382/76ed8ea0-9db9-4749-89bd-f9dc9ba5f30d_pl6mgt.png',
+    img: 'https://res.cloudinary.com/di2oqwgqv/image/upload/v1775976264/IMG_3602_xcv2lj.jpg',
     description: "Editor & Designer of Samay Raina's viral Delhi Reel. A cinematic journey through the heart of the capital.",
     video: 'https://res.cloudinary.com/di2oqwgqv/video/upload/v1775922932/3764892086818755703_upylbn.mp4',
     aspectRatio: '4/3',
-    photos: [],
+    photos: ['https://res.cloudinary.com/di2oqwgqv/image/upload/v1775976246/IMG_3600_my2qgc.jpg'],
     details: {
       client: 'Samay Raina',
       year: '2025',
@@ -198,7 +198,7 @@ const ProjectDetail = () => {
 
           {/* Media Showcase */}
           <div className="space-y-12 mb-24">
-            {project.video ? (
+            {project.video && (
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -215,19 +215,23 @@ const ProjectDetail = () => {
                   className="w-full h-full object-cover"
                 />
               </motion.div>
-            ) : (
+            )}
+            
+            {project.photos && project.photos.length > 0 && (
               project.photos.map((photo, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="rounded-3xl overflow-hidden shadow-2xl"
+                  className={`rounded-3xl overflow-hidden shadow-2xl mx-auto ${
+                    project.slug === 'samay-raina-delhi' ? 'aspect-[9/16] max-w-md' : ''
+                  }`}
                 >
                   <img 
                     src={photo} 
                     alt={`${project.title} showcase ${i + 1}`} 
-                    className="w-full h-auto object-cover"
+                    className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
                   />
                 </motion.div>
@@ -631,7 +635,7 @@ const Portfolio = () => {
         <div>
           <h2 className="text-4xl md:text-6xl font-display font-bold mb-6">Our Work</h2>
           <p className="text-white/50 max-xl">
-            A showcase of brands we've helped transform from invisible to unmissable.
+            A showcase of brands.
           </p>
         </div>
       </div>
