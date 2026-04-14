@@ -62,21 +62,6 @@ const projects: Project[] = [
     }
   },
   { 
-    slug: 'fusion-cafe',
-    title: 'Fusion Cafe', 
-    category: 'Website Designs', 
-    img: 'https://i.ibb.co/Nd2NP1yb/9f108c82-462f-4cb3-be71-307886a2023c.jpg',
-    description: '❤️',
-    video: 'https://res.cloudinary.com/di2oqwgqv/video/upload/v1775242909/document_6231219066493792735_mahph6.mp4',
-    aspectRatio: '9/16',
-    photos: [],
-    details: {
-      client: 'Fusion Cafe',
-      year: '2026',
-      services: 'Reels, Photoshoot'
-    }
-  },
-  { 
     slug: 'cremabonn-cafe',
     title: 'Cremabonn (Cafe)', 
     category: 'Product Photoshoots', 
