@@ -768,7 +768,7 @@ const Packages = () => {
       name: '🥈 SILVER — Starter Presence',
       price: '₹14,999',
       billing: '/ month',
-      description: 'Perfect for restaurants starting their online presence.',
+      description: 'Perfect for businesses starting their online presence.',
       recommended: false,
       features: [
         'Instagram management',
@@ -776,18 +776,18 @@ const Packages = () => {
         '4–6 reels',
         'Basic captions & hashtags',
         '1 shoot/month',
-        'Food & ambience photography',
+        'Product & ambience photography',
         'Basic poster/story designs',
         'Posting & scheduling',
         'Monthly performance report'
       ],
-      bestFor: 'Small cafés & local restaurants wanting better visibility.'
+      bestFor: 'Small business wanting better visibility.'
     },
     {
       name: '🥇 GOLD — Growth Marketing',
       price: '₹19,000',
       billing: '/ month',
-      description: 'Built for restaurants that want more customers and stronger engagement.',
+      description: 'Built for businesses that want more customers and stronger engagement.',
       recommended: true,
       features: [
         'Instagram + Facebook + WhatsApp management',
@@ -802,20 +802,20 @@ const Packages = () => {
         'Vendor coordination',
         'Weekly & monthly reports'
       ],
-      bestFor: 'Restaurants focused on customer growth and repeat visits.'
+      bestFor: 'Businesses focused on customer growth and repeat visits.'
     },
     {
       name: '💎 DIAMOND — Premium Brand Growth',
       price: '₹24,999',
       billing: '/ month',
-      description: 'Complete marketing control for serious restaurant brands.',
+      description: 'Complete marketing control for serious brands.',
       recommended: false,
       features: [
         'Full social media management',
         '20–25 posts/month',
         '12–15 premium reels',
         'Storytelling & trend-based content',
-        'Cinematic food shoots',
+        'Cinematic product shoots',
         '3–4 shoots/month',
         'Full branding & menu design',
         'Campaign management',
@@ -824,7 +824,7 @@ const Packages = () => {
         'Google Business optimization',
         'Weekly strategy reports & growth tracking'
       ],
-      bestFor: 'Restaurants & cafés aiming to become a recognized local brand.'
+      bestFor: 'Businesses aiming to become a recognized local brand.'
     }
   ];
 
