@@ -711,10 +711,14 @@ const Process = () => {
 };
 
 const Packages = () => {
-  const packs = [
+  const [activeTab, setActiveTab] = useState<'shoot' | 'monthly'>('shoot');
+
+  const shootPacks = [
     {
       name: 'Starter Package',
       price: '₹799',
+      billing: '',
+      description: 'Quick cinematic capture to refresh your digital presence.',
       recommended: false,
       features: [
         '1 reel',
@@ -722,11 +726,14 @@ const Packages = () => {
         'Professional shoot',
         'Advanced Video Editing & Color Grading',
         'Delivery 2-3 DAYS'
-      ]
+      ],
+      bestFor: 'Cafés and shops needing quick, premium promotional clips.'
     },
     {
       name: 'Growth Package',
       price: '₹1499',
+      billing: '',
+      description: 'The sweet spot for active visual content production.',
       recommended: true,
       features: [
         '2 reels',
@@ -735,11 +742,14 @@ const Packages = () => {
         'Advanced Video Editing & Color Grading',
         '1 revision',
         'Delivery 3-5 days'
-      ]
+      ],
+      bestFor: 'Growing brands launch campaigns or looking to stay active.'
     },
     {
       name: 'Premium Package',
       price: '₹3499',
+      billing: '',
+      description: 'Full-scale visual makeover and cinematic coverage.',
       recommended: false,
       features: [
         '5 reels',
@@ -748,47 +758,176 @@ const Packages = () => {
         'Advanced Video Editing & Color Grading',
         '3 revisions',
         'Delivery 10-15 days'
-      ]
+      ],
+      bestFor: 'Established brands preparing large promotional catalog releases.'
     }
   ];
 
+  const monthlyPacks = [
+    {
+      name: '🥈 SILVER — Starter Presence',
+      price: '₹14,999',
+      billing: '/ month',
+      description: 'Perfect for restaurants starting their online presence.',
+      recommended: false,
+      features: [
+        'Instagram management',
+        '8 posts/month',
+        '4–6 reels',
+        'Basic captions & hashtags',
+        '1 shoot/month',
+        'Food & ambience photography',
+        'Basic poster/story designs',
+        'Posting & scheduling',
+        'Monthly performance report'
+      ],
+      bestFor: 'Small cafés & local restaurants wanting better visibility.'
+    },
+    {
+      name: '🥇 GOLD — Growth Marketing',
+      price: '₹19,000',
+      billing: '/ month',
+      description: 'Built for restaurants that want more customers and stronger engagement.',
+      recommended: true,
+      features: [
+        'Instagram + Facebook + WhatsApp management',
+        '12–16 posts/month',
+        '8–10 reels',
+        'Festival & offer creatives',
+        'Daily engagement handling',
+        'WhatsApp broadcast setup',
+        '2 shoots/month',
+        'Trend-based reels',
+        'Menu/poster/stories design',
+        'Vendor coordination',
+        'Weekly & monthly reports'
+      ],
+      bestFor: 'Restaurants focused on customer growth and repeat visits.'
+    },
+    {
+      name: '💎 DIAMOND — Premium Brand Growth',
+      price: '₹24,999',
+      billing: '/ month',
+      description: 'Complete marketing control for serious restaurant brands.',
+      recommended: false,
+      features: [
+        'Full social media management',
+        '20–25 posts/month',
+        '12–15 premium reels',
+        'Storytelling & trend-based content',
+        'Cinematic food shoots',
+        '3–4 shoots/month',
+        'Full branding & menu design',
+        'Campaign management',
+        'Influencer collaborations',
+        'Review & customer interaction management',
+        'Google Business optimization',
+        'Weekly strategy reports & growth tracking'
+      ],
+      bestFor: 'Restaurants & cafés aiming to become a recognized local brand.'
+    }
+  ];
+
+  const currentPacks = activeTab === 'shoot' ? shootPacks : monthlyPacks;
+
   return (
-    <section id="packages" className="section-padding">
-      <div className="text-center mb-20">
+    <section id="packages" className="section-padding relative">
+      <div className="text-center mb-12">
         <h2 className="text-4xl md:text-6xl font-display font-bold mb-6">Choose Your Nest</h2>
         <p className="text-white/50 max-w-2xl mx-auto">
           Tailored packages designed to fit your brand's current stage and growth goals.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {packs.map((pack, i) => (
+      {/* Styled Toggle Switch */}
+      <div className="flex justify-center mb-16">
+        <div className="bg-white/5 border border-white/10 rounded-full p-1.5 flex gap-2 relative z-10 backdrop-blur-md">
+          <button
+            onClick={() => setActiveTab('shoot')}
+            className={`px-8 py-3 rounded-full text-sm font-bold transition-all duration-300 relative ${
+              activeTab === 'shoot'
+                ? 'bg-accent text-white shadow-[0_0_20px_var(--color-accent-glow)] scale-105'
+                : 'text-white/50 hover:text-white'
+            }`}
+          >
+            Shoot Packages
+          </button>
+          <button
+            onClick={() => setActiveTab('monthly')}
+            className={`px-8 py-3 rounded-full text-sm font-bold transition-all duration-300 flex items-center gap-2 relative ${
+              activeTab === 'monthly'
+                ? 'bg-accent text-white shadow-[0_0_20px_var(--color-accent-glow)] scale-105'
+                : 'text-white/50 hover:text-white'
+            }`}
+          >
+            Monthly Marketing
+            <span className={`text-[10px] px-2 py-0.5 rounded-full font-extrabold ${
+              activeTab === 'monthly' ? 'bg-white/20 text-white' : 'bg-accent/20 text-accent'
+            }`}>
+              New
+            </span>
+          </button>
+        </div>
+      </div>
+
+      {/* Animated Packages Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+        {currentPacks.map((pack, i) => (
           <motion.div
-            key={i}
+            key={`${activeTab}-${i}`}
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.2 }}
-            className={`glass-panel p-10 flex flex-col relative ${pack.recommended ? 'border-accent shadow-[0_0_30px_rgba(255,106,0,0.15)] md:scale-105 z-10' : ''}`}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+            className={`glass-panel p-10 flex flex-col relative transition-all duration-300 ${
+              pack.recommended ? 'border-accent shadow-[0_0_30px_rgba(255,106,0,0.15)] md:scale-[1.03] z-10' : ''
+            }`}
           >
             {pack.recommended && (
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest">
                 Recommended
               </div>
             )}
-            <h3 className="text-2xl font-display font-bold mb-2">{pack.name}</h3>
-            <div className="flex items-baseline gap-2 mb-8">
-              <span className="text-accent text-3xl font-bold">{pack.price}</span>
+            
+            <h3 className="text-2xl font-display font-bold mb-3">{pack.name}</h3>
+            
+            {pack.description && (
+              <p className="text-white/60 text-sm mb-6 min-h-[44px] leading-relaxed">
+                {pack.description}
+              </p>
+            )}
+
+            <div className="flex items-baseline gap-1.5 mb-8 border-b border-white/5 pb-6">
+              <span className="text-accent text-4xl font-bold font-display">{pack.price}</span>
+              {pack.billing && (
+                <span className="text-white/40 text-sm font-medium">{pack.billing}</span>
+              )}
             </div>
-            <ul className="space-y-4 mb-12 flex-grow">
+
+            <ul className="space-y-4 mb-8 flex-grow">
               {pack.features.map((f, idx) => (
-                <li key={idx} className="flex items-center gap-3 text-white/70">
-                  <CheckCircle2 size={18} className="text-accent shrink-0" />
+                <li key={idx} className="flex items-start gap-3 text-white/70 text-sm">
+                  <CheckCircle2 size={16} className="text-accent shrink-0 mt-0.5" />
                   <span>{f}</span>
                 </li>
               ))}
             </ul>
-            <a href="#contact" className={`glow-btn w-full py-4 rounded-xl font-bold transition-all text-center ${pack.recommended ? 'bg-accent text-white hover:bg-accent/90' : 'bg-white/10 text-white hover:bg-white/20'}`}>
+
+            {pack.bestFor && (
+              <div className="pt-6 border-t border-white/5 mb-6">
+                <span className="text-[10px] text-accent font-bold uppercase tracking-widest block mb-2">Best For</span>
+                <p className="text-white/70 text-xs leading-relaxed font-medium">{pack.bestFor}</p>
+              </div>
+            )}
+
+            <a
+              href="#contact"
+              className={`glow-btn w-full py-4 rounded-xl font-bold transition-all text-center ${
+                pack.recommended
+                  ? 'bg-accent text-white hover:bg-accent/90 shadow-[0_4px_15px_rgba(255,106,0,0.2)]'
+                  : 'bg-white/10 text-white hover:bg-white/20'
+              }`}
+            >
               Select Package
             </a>
           </motion.div>
