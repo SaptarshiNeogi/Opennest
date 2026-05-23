@@ -529,7 +529,7 @@ const About = () => {
   );
 };
 
-const Services = () => {
+const Services = ({ onSelectVisibility }: { onSelectVisibility: () => void }) => {
   const services = [
     {
       title: 'Website Development',
@@ -600,7 +600,11 @@ const Services = () => {
             The Working solution:  Photoshoot + Reels + Brand Visuals. Everything you need to launch or rebrand.
           </p>
         </div>
-        <a href="#contact" className="glow-btn relative z-10 bg-white text-accent px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform whitespace-nowrap">
+        <a 
+          href="#contact" 
+          onClick={onSelectVisibility}
+          className="glow-btn relative z-10 bg-white text-accent px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform whitespace-nowrap"
+        >
           Inquire Now
         </a>
         {/* Decorative Background Circles */}
@@ -710,7 +714,7 @@ const Process = () => {
   );
 };
 
-const Packages = () => {
+const Packages = ({ onSelectPackage }: { onSelectPackage: (service: string, pack: string) => void }) => {
   const [activeTab, setActiveTab] = useState<'shoot' | 'monthly'>('shoot');
 
   const shootPacks = [
@@ -922,6 +926,22 @@ const Packages = () => {
 
             <a
               href="#contact"
+              onClick={() => {
+                let service = '';
+                let subPack = '';
+                if (activeTab === 'shoot') {
+                  service = 'Shoot packages';
+                  if (pack.name.includes('Starter')) subPack = 'Starter package';
+                  else if (pack.name.includes('Growth')) subPack = 'Growth package';
+                  else if (pack.name.includes('Premium')) subPack = 'Premium package';
+                } else {
+                  service = 'Monthly marketing';
+                  if (pack.name.includes('SILVER')) subPack = 'Silver';
+                  else if (pack.name.includes('GOLD')) subPack = 'Gold';
+                  else if (pack.name.includes('DIAMOND')) subPack = 'Diamond';
+                }
+                onSelectPackage(service, subPack);
+              }}
               className={`glow-btn w-full py-4 rounded-xl font-bold transition-all text-center ${
                 pack.recommended
                   ? 'bg-accent text-white hover:bg-accent/90 shadow-[0_4px_15px_rgba(255,106,0,0.2)]'
@@ -937,7 +957,17 @@ const Packages = () => {
   );
 };
 
-const Contact = () => {
+const Contact = ({ 
+  selectedService, 
+  selectedPackage, 
+  setSelectedService, 
+  setSelectedPackage 
+}: { 
+  selectedService: string; 
+  selectedPackage: string;
+  setSelectedService: (service: string) => void;
+  setSelectedPackage: (pack: string) => void;
+}) => {
   return (
     <section id="contact" className="section-padding">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -985,25 +1015,104 @@ const Contact = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <label className="text-xs font-bold uppercase tracking-widest text-white/50">Name</label>
-                <input name="name" type="text" required className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-accent outline-none transition-colors" placeholder="Your Name" />
+                <input name="name" type="text" required className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-accent outline-none transition-colors text-white" placeholder="Your Name" />
               </div>
               <div className="space-y-2">
                 <label className="text-xs font-bold uppercase tracking-widest text-white/50">Business Name</label>
-                <input name="business" type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-accent outline-none transition-colors" placeholder="Your Business" />
+                <input name="business" type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-accent outline-none transition-colors text-white" placeholder="Your Business" />
               </div>
             </div>
+            
             <div className="space-y-2">
               <label className="text-xs font-bold uppercase tracking-widest text-white/50">Service Needed</label>
-              <select name="service" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-accent outline-none transition-colors appearance-none">
-                <option className="bg-primary">Website Development</option>
-                <option className="bg-primary">Brand Photoshoot</option>
-                <option className="bg-primary">Reel Content</option>
-                <option className="bg-primary">Visibility Package</option>
-              </select>
+              <div className="relative">
+                <select 
+                  name="service" 
+                  value={selectedService || 'Shoot packages'} 
+                  onChange={(e) => {
+                    const val = e.target.value;
+                    setSelectedService(val);
+                    if (val === 'Visibility package') {
+                      setSelectedPackage('');
+                    } else if (val === 'Shoot packages') {
+                      setSelectedPackage('Starter package');
+                    } else if (val === 'Monthly marketing') {
+                      setSelectedPackage('Silver');
+                    }
+                  }}
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-accent outline-none transition-colors appearance-none text-white cursor-pointer pr-10"
+                >
+                  <option value="Shoot packages" className="bg-primary text-white">Shoot packages</option>
+                  <option value="Monthly marketing" className="bg-primary text-white">Monthly marketing</option>
+                  <option value="Visibility package" className="bg-primary text-white">Visibility package</option>
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-white/50">
+                  <ChevronDown size={18} />
+                </div>
+              </div>
             </div>
+
+            <AnimatePresence mode="wait">
+              {selectedService === 'Shoot packages' && (
+                <motion.div 
+                  key="shoot"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="space-y-2"
+                >
+                  <label className="text-xs font-bold uppercase tracking-widest text-white/50">Package Type</label>
+                  <div className="relative">
+                    <select 
+                      name="package" 
+                      value={selectedPackage || 'Starter package'} 
+                      onChange={(e) => setSelectedPackage(e.target.value)}
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-accent outline-none transition-colors appearance-none text-white cursor-pointer pr-10"
+                    >
+                      <option value="Starter package" className="bg-primary text-white">Starter package</option>
+                      <option value="Growth package" className="bg-primary text-white">Growth package</option>
+                      <option value="Premium package" className="bg-primary text-white">Premium package</option>
+                    </select>
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-white/50">
+                      <ChevronDown size={18} />
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+
+              {selectedService === 'Monthly marketing' && (
+                <motion.div 
+                  key="monthly"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="space-y-2"
+                >
+                  <label className="text-xs font-bold uppercase tracking-widest text-white/50">Package Type</label>
+                  <div className="relative">
+                    <select 
+                      name="package" 
+                      value={selectedPackage || 'Silver'} 
+                      onChange={(e) => setSelectedPackage(e.target.value)}
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-accent outline-none transition-colors appearance-none text-white cursor-pointer pr-10"
+                    >
+                      <option value="Silver" className="bg-primary text-white">Silver</option>
+                      <option value="Gold" className="bg-primary text-white">Gold</option>
+                      <option value="Diamond" className="bg-primary text-white">Diamond</option>
+                    </select>
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-white/50">
+                      <ChevronDown size={18} />
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
             <div className="space-y-2">
               <label className="text-xs font-bold uppercase tracking-widest text-white/50">Phone / WhatsApp</label>
-              <input name="phone" type="tel" required className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-accent outline-none transition-colors" placeholder="+91 ..." />
+              <input name="phone" type="tel" required className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-accent outline-none transition-colors text-white" placeholder="+91 ..." />
             </div>
             <button type="submit" className="btn-primary w-full mt-4">
               Submit
@@ -1142,18 +1251,32 @@ const FAQ = () => {
 // --- Main App ---
 
 const LandingPage = () => {
+  const [selectedService, setSelectedService] = useState<string>('Shoot packages');
+  const [selectedPackage, setSelectedPackage] = useState<string>('Starter package');
+
   return (
     <div className="bg-primary min-h-screen overflow-x-hidden">
       <Navbar />
       <Hero />
       <About />
-      <Services />
+      <Services onSelectVisibility={() => {
+        setSelectedService('Visibility package');
+        setSelectedPackage('');
+      }} />
       <Portfolio />
       <Process />
       <CreativeShowcase />
-      <Packages />
+      <Packages onSelectPackage={(service, pack) => {
+        setSelectedService(service);
+        setSelectedPackage(pack);
+      }} />
       <FAQ />
-      <Contact />
+      <Contact 
+        selectedService={selectedService}
+        selectedPackage={selectedPackage}
+        setSelectedService={setSelectedService}
+        setSelectedPackage={setSelectedPackage}
+      />
       <Footer />
     </div>
   );
