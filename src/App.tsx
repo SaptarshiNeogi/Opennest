@@ -720,50 +720,87 @@ const Packages = ({ onSelectPackage }: { onSelectPackage: (service: string, pack
   const shootPacks = [
     {
       name: 'Starter Package',
-      price: '₹799',
+      price: '₹1,999',
       billing: '',
-      description: 'Quick cinematic capture to refresh your digital presence.',
+      description: 'Quick guided content shoot and promotional short-form video for local businesses.',
       recommended: false,
       features: [
-        '✅ 1 reel',
-        '✅ 5 Edited Images',
-        '✅ Professional shoot',
-        '✅ Advanced Video Editing & Color Grading',
-        '✅ Delivery 2-3 DAYS'
+        'What’s Included',
+        '✅ 1 Edited Promotional Reel',
+        '✅ 8 Professionally Edited Images',
+        '✅ 1 Content Shoot Session (Up to 60 Minutes)',
+        '✅ Guided social media content shoot',
+        '✅ Product, Ambience & Brand Coverage',
+        '✅ Platform-Optimized Editing',
+        '✅ Color Correction & Audio Enhancement',
+        '✅ Vertical Content Format for Reels/Shorts',
+        '✅ Delivery Within 3–4 Working Days',
+        'Expected Content Impact',
+        '✔ Better visual presentation for your business',
+        '✔ Fresh promotional content for social platforms',
+        '✔ Improved brand appearance online',
+        '✔ More engaging short-form visual content',
+        '✔ Platform-ready assets for marketing & promotions',
+        '⚠️ Travel costs outside the service area may be billed separately.',
+        '⚠️ Complex commercial production requirements are not included in this package.'
       ],
-      bestFor: 'Cafés and shops needing quick, premium promotional clips.'
+      bestFor: 'Cafes & Restaurants, Clothing Brands, Salons & Studios, Gyms & Fitness Spaces, Product Launches, Businesses needing fresh social media content.'
     },
     {
       name: 'Growth Package',
-      price: '₹1499',
+      price: '₹3,999',
       billing: '',
-      description: 'The sweet spot for active visual content production.',
+      description: 'Cinematic reel content and premium photos with creative direction included.',
       recommended: true,
       features: [
-        '✅ 2 reels',
-        '✅ 10 Edited Images',
-        '✅ Professional shoot',
-        '✅ Advanced Video Editing & Color Grading',
-        '✅ 1 revision',
-        '✅ Delivery 3-5 days'
+        '✅ 2 Cinematic Reels (optimized for reach & engagement)',
+        '✅ 10 Professionally Edited Photos',
+        '✅ Creative Direction Included (pose guidance, shot planning)',
+        '✅ Professional Shoot Experience (lighting, framing)',
+        '✅ Advanced Editing & Color Grading (cinematic look)',
+        '✅ 1 Revision Included',
+        '✅ Delivery Within 3–5 Days',
+        'Bonus Features',
+        '✅ Instagram-optimized export',
+        '✅ Trend-based reel editing',
+        '✅ Brand-focused color tone',
+        '✅ Shot planning assistance',
+        '✅ Viral-style pacing',
+        '✅ Thumbnail frame selection',
+        'What This Package Helps You Achieve',
+        '✔ Look more professional online',
+        '✔ Build audience trust',
+        '✔ Increase social media engagement',
+        '✔ Stay consistent with content',
+        '✔ Create a premium brand image',
+        '⚠️ Limited shoots accepted every week.'
       ],
-      bestFor: 'Growing brands launch campaigns or looking to stay active.'
+      bestFor: 'Personal brands, Cafes & restaurants, Clothing brands, Fitness creators, Startups, Businesses wanting consistent social media content.'
     },
     {
       name: 'Premium Package',
-      price: '₹3499',
+      price: '₹5,499',
       billing: '',
-      description: 'Full-scale visual makeover and cinematic coverage.',
+      description: 'Top-tier cinematic brand visuals and premium reels package.',
       recommended: false,
       features: [
-        '✅ 5 reels',
-        '✅ 15 Edited Images',
-        '✅ Professional shoot',
-        '✅ Advanced Video Editing & Color Grading',
-        '✅ 3 revisions',
-        '✅ Delivery 10-15 days'
+        'Included',
+        '✔ 5 Cinematic Reels',
+        '✔ 15 Premium Edited Photos',
+        '✔ Creative Direction & Pose Guidance',
+        '✔ Professional Cinematic Shoot',
+        '✔ Advanced Editing & Color Grading',
+        '✔ Instagram-Optimized Delivery',
+        '✔ 3 Revisions Included',
+        '✔ Delivery Within 10–15 Days',
+        'Results You Can Expect',
+        '✔ Stronger online presence',
+        '✔ Premium brand identity',
+        '✔ More engaging content',
+        '✔ Higher audience trust',
+        '⚠️ Limited premium slots available every month.'
       ],
-      bestFor: 'Established brands preparing large promotional catalog releases.'
+      bestFor: 'Brands, creators & businesses looking for premium social media content and cinematic brand visuals.'
     }
   ];
 
