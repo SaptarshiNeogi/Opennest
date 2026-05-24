@@ -725,11 +725,11 @@ const Packages = ({ onSelectPackage }: { onSelectPackage: (service: string, pack
       description: 'Quick cinematic capture to refresh your digital presence.',
       recommended: false,
       features: [
-        '1 reel',
-        '5 Edited Images',
-        'Professional shoot',
-        'Advanced Video Editing & Color Grading',
-        'Delivery 2-3 DAYS'
+        '✅ 1 reel',
+        '✅ 5 Edited Images',
+        '✅ Professional shoot',
+        '✅ Advanced Video Editing & Color Grading',
+        '✅ Delivery 2-3 DAYS'
       ],
       bestFor: 'Cafés and shops needing quick, premium promotional clips.'
     },
@@ -740,12 +740,12 @@ const Packages = ({ onSelectPackage }: { onSelectPackage: (service: string, pack
       description: 'The sweet spot for active visual content production.',
       recommended: true,
       features: [
-        '2 reels',
-        '10 Edited Images',
-        'Professional shoot',
-        'Advanced Video Editing & Color Grading',
-        '1 revision',
-        'Delivery 3-5 days'
+        '✅ 2 reels',
+        '✅ 10 Edited Images',
+        '✅ Professional shoot',
+        '✅ Advanced Video Editing & Color Grading',
+        '✅ 1 revision',
+        '✅ Delivery 3-5 days'
       ],
       bestFor: 'Growing brands launch campaigns or looking to stay active.'
     },
@@ -756,12 +756,12 @@ const Packages = ({ onSelectPackage }: { onSelectPackage: (service: string, pack
       description: 'Full-scale visual makeover and cinematic coverage.',
       recommended: false,
       features: [
-        '5 reels',
-        '15 Edited Images',
-        'Professional shoot',
-        'Advanced Video Editing & Color Grading',
-        '3 revisions',
-        'Delivery 10-15 days'
+        '✅ 5 reels',
+        '✅ 15 Edited Images',
+        '✅ Professional shoot',
+        '✅ Advanced Video Editing & Color Grading',
+        '✅ 3 revisions',
+        '✅ Delivery 10-15 days'
       ],
       bestFor: 'Established brands preparing large promotional catalog releases.'
     }
@@ -775,60 +775,139 @@ const Packages = ({ onSelectPackage }: { onSelectPackage: (service: string, pack
       description: 'Perfect for businesses starting their online presence.',
       recommended: false,
       features: [
-        'Instagram management',
-        '8 posts/month',
-        '4–6 reels',
-        'Basic captions & hashtags',
-        '1 shoot/month',
-        'Product & ambience photography',
-        'Basic poster/story designs',
-        'Posting & scheduling',
-        'Monthly performance report'
+        '✅ 6 High-Performance Reels',
+        '✅ 8 Branded Social Creatives',
+        '✅ Story Content Support',
+        '✅ Professional Monthly Shoot (2 hrs)',
+        'Strategy & Optimization',
+        '✅ Monthly Content Strategy',
+        '✅ Trend & Competitor Research',
+        '✅ Hook & Caption Copywriting',
+        '✅ SEO Hashtag Optimization',
+        'Account Management',
+        '✅ Content Scheduling & Publishing',
+        '✅ Instagram Page Management',
+        '✅ Audience Engagement Support',
+        '✅ Monthly Performance Analytics',
+        'Expected Outcomes',
+        '✔ Stronger online visibility',
+        '✔ Consistent branded presence',
+        '✔ Improved audience engagement',
+        '✔ Higher inquiry potential',
+        '✔ Better customer trust'
       ],
-      bestFor: 'Small business wanting better visibility.'
+      bestFor: 'Restaurants, Cafes, Fashion brands, Salons, Gyms, Coaches, Local businesses'
     },
     {
       name: '🥇 GOLD — Growth Marketing',
-      price: '₹19,000',
+      price: '₹24,999',
       billing: '/ month',
       description: 'Built for businesses that want more customers and stronger engagement.',
       recommended: true,
       features: [
-        'Instagram + Facebook + WhatsApp management',
-        '12–16 posts/month',
-        '8–10 reels',
-        'Festival & offer creatives',
-        'Daily engagement handling',
-        'WhatsApp broadcast setup',
-        '2 shoots/month',
-        'Trend-based reels',
-        'Menu/poster/stories design',
-        'Vendor coordination',
-        'Weekly & monthly reports'
+        'Choose Your Primary Platform',
+        '✅ Instagram + WhatsApp Support OR Facebook + WhatsApp Support',
+        'What’s Included',
+        'Platform Management',
+        '✅ Full Management of ONE Primary Platform (Instagram OR Facebook)',
+        '✅ Content Scheduling & Publishing',
+        '✅ Profile/Page Optimization',
+        '✅ Audience Engagement Monitoring',
+        'Content Production',
+        '✅ 8 High-Performance Reels/Short Videos',
+        '✅ 16 Branded Content Assets',
+        '✅ Story Content Support',
+        '✅ Promotional Campaign Creatives',
+        '✅ 2 Professional Shoot Sessions/month',
+        'Strategy & Organic Growth',
+        '✅ Monthly Content Strategy',
+        '✅ Competitor & Trend Research',
+        '✅ Audience-Focused Content Planning',
+        '✅ Hook & Caption Copywriting',
+        '✅ Platform Discoverability Optimization',
+        'Paid Advertising Support',
+        '✅ Meta Ads Campaign Setup',
+        '✅ Local Audience Targeting',
+        '✅ Lead & Inquiry Campaign Management',
+        '✅ Ad Creative Optimization',
+        '✅ Campaign Performance Monitoring',
+        '✅ Monthly Ad Performance Insights',
+        'WhatsApp Conversion Support',
+        '✅ WhatsApp Business Integration',
+        '✅ Click-to-WhatsApp Funnel Setup',
+        '✅ Inquiry Flow Optimization',
+        '✅ Broadcast Campaign Assistance',
+        'Analytics & Optimization',
+        '✅ Weekly Performance Tracking',
+        '✅ Monthly Growth & Campaign Reports',
+        '✅ Strategy Optimization Based on Insights',
+        'Introductory Campaign support',
+        '✅ Includes setup & management of one introductory paid campaign',
+        '✅ Ad budget support included up to ₹2,000 for the first campaign',
+        '✅ Designed to test audience response & improve initial reach',
+        '⚠️ Additional ad spend beyond introductory campaign will be billed separately.',
+        'Expected Platform & Business Impact',
+        '✔ Stronger digital visibility among your target audience',
+        '✔ Increased customer inquiries through social platforms',
+        '✔ Better reach for offers, products & promotions',
+        '✔ Higher audience attention through strategic paid campaigns',
+        '✔ Improved trust through consistent branded content',
+        '✔ More opportunities for customer interaction & conversion',
+        '✔ Consistent online presence that supports long-term business growth'
       ],
-      bestFor: 'Businesses focused on customer growth and repeat visits.'
+      bestFor: 'Businesses focused on customer growth, lead generation, and paid campaigns.'
     },
     {
       name: '💎 DIAMOND — Premium Brand Growth',
-      price: '₹24,999',
+      price: '₹39,999',
       billing: '/ month',
       description: 'Complete marketing control for serious brands.',
       recommended: false,
       features: [
-        'Full social media management',
-        '20–25 posts/month',
-        '12–15 premium reels',
-        'Storytelling & trend-based content',
-        'Cinematic product shoots',
-        '3–4 shoots/month',
-        'Full branding & menu design',
-        'Campaign management',
-        'Influencer collaborations',
-        'Review & customer interaction management',
-        'Google Business optimization',
-        'Weekly strategy reports & growth tracking'
+        'Platform Management',
+        '✅ Strategic Management of Selected Social Platforms',
+        '✅ Content Scheduling & Publishing',
+        '✅ Audience Engagement Monitoring',
+        '✅ Profile & Platform Optimization',
+        'Content & Creative Production',
+        '✅ 10 High-Performance Reels/Short Videos',
+        '✅ 20 Branded Content Assets',
+        '✅ Campaign-Focused Creative Design',
+        '✅ Story Content Support',
+        '✅ 3 Professional Shoot Sessions/month',
+        '✅ Cinematic Product & Brand Shoots',
+        'Performance Marketing',
+        '✅ Meta Ads Campaign Management',
+        '✅ Lead & Conversion Campaign Setup',
+        '✅ Audience Targeting & Retargeting',
+        '✅ Ad Creative Optimization',
+        '✅ Campaign Performance Monitoring',
+        'Brand Growth Support',
+        '✅ Google Business Profile Optimization',
+        '✅ Promotional Campaign Strategy',
+        '✅ Influencer Collaboration Coordination (Influencer fees separate)',
+        '✅ Reputation & Review Monitoring Support',
+        'Event Activation Support',
+        '✅ One Promotional Brand Event Coordination Support (if required during engagement period)',
+        'Strategy & Reporting',
+        '✅ Monthly Growth Strategy Planning',
+        '✅ Weekly Performance Tracking',
+        '✅ Monthly Analytics & Campaign Reporting',
+        '✅ Optimization Based on Campaign Insights',
+        'Introductory Campaign Support',
+        '✅ Includes one ₹4500 launch campaign support credit for initial audience reach & testing.',
+        '⚠️ Ad spend beyond the introductory campaign is billed separately.',
+        '⚠️ Influencer costs, venue costs & event production expenses are not included.',
+        'Expected Platform & Business Impact',
+        '✔ Stronger visibility among your target audience',
+        '✔ Increased inquiry opportunities through strategic campaigns',
+        '✔ Better reach for products, services & promotional offers',
+        '✔ Improved customer trust through premium branded content',
+        '✔ Stronger local market presence & brand recall',
+        '✔ Higher audience attention through consistent campaign activity',
+        '✔ Improved digital positioning for long-term business growth'
       ],
-      bestFor: 'Businesses aiming to become a recognized local brand.'
+      bestFor: 'Established businesses aiming to become a recognized local leader.'
     }
   ];
 
@@ -908,13 +987,42 @@ const Packages = ({ onSelectPackage }: { onSelectPackage: (service: string, pack
               )}
             </div>
 
-            <ul className="space-y-4 mb-8 flex-grow">
-              {pack.features.map((f, idx) => (
-                <li key={idx} className="flex items-start gap-3 text-white/70 text-sm">
-                  <CheckCircle2 size={16} className="text-accent shrink-0 mt-0.5" />
-                  <span>{f}</span>
-                </li>
-              ))}
+            <ul className="space-y-3.5 mb-8 flex-grow overflow-y-auto max-h-[380px] pr-2 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+              {pack.features.map((f, idx) => {
+                // Determine if item is a group header
+                const isHeader = !f.startsWith('✅') && !f.startsWith('✔') && !f.startsWith('⚠️') && !f.includes('OR');
+                
+                if (isHeader) {
+                  return (
+                    <li key={idx} className="pt-5 pb-1 object-cover border-b border-white/5 first:pt-0">
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-accent">{f}</span>
+                    </li>
+                  );
+                }
+
+                let icon = <CheckCircle2 size={16} className="text-accent shrink-0 mt-0.5" />;
+                let textClass = "text-white/70";
+                let cleanText = f;
+
+                if (f.startsWith('✅')) {
+                  cleanText = f.replace(/^✅\s*/, '');
+                } else if (f.startsWith('✔')) {
+                  icon = <span className="text-emerald-400 shrink-0 mt-0.5 font-bold text-sm">✓</span>;
+                  textClass = "text-emerald-400/90 font-medium";
+                  cleanText = f.replace(/^✔\s*/, '');
+                } else if (f.startsWith('⚠️')) {
+                  icon = <span className="text-amber-400 shrink-0 mt-0.5 font-bold text-sm">⚠</span>;
+                  textClass = "text-white/50 italic text-xs";
+                  cleanText = f.replace(/^⚠️\s*/, '');
+                }
+
+                return (
+                  <li key={idx} className="flex items-start gap-2.5 text-sm">
+                    {icon}
+                    <span className={textClass}>{cleanText}</span>
+                  </li>
+                );
+              })}
             </ul>
 
             {pack.bestFor && (
