@@ -416,7 +416,7 @@ const Hero = () => {
             className="w-full h-full object-cover"
             onEnded={(e) => (e.currentTarget.pause())}
           >
-            <source src="https://res.cloudinary.com/di2oqwgqv/video/upload/v1773222409/IMG_2932_1_bhryft.mp4" type="video/mp4" />
+            <source src="https://res.cloudinary.com/di2oqwgqv/video/upload/v1779781727/1779779927201007_sxxpwc_jonjr9.mp4" type="video/mp4" />
           </video>
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-transparent to-primary/80 z-10 hidden md:block" />
