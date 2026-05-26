@@ -826,12 +826,14 @@ const Packages = ({ onSelectPackage }: { onSelectPackage: (service: string, pack
         '✅ Instagram Page Management',
         '✅ Audience Engagement Support',
         '✅ Monthly Performance Analytics',
-        'Expected Outcomes',
-        '✔ Stronger online visibility',
-        '✔ Consistent branded presence',
-        '✔ Improved audience engagement',
-        '✔ Higher inquiry potential',
-        '✔ Better customer trust'
+        'Expected Platform Presence Impact',
+        '✔ More active and professional-looking social media presence',
+        '✔ Better consistency in showcasing products, services & offers',
+        '✔ Improved visibility among nearby and existing audiences',
+        '✔ Stronger first impression for potential customers online',
+        '✔ Increased familiarity through regular branded content',
+        '✔ Better audience connection through consistent platform activity',
+        '✔ Reliable digital presence that keeps your business visible and updated'
       ],
       bestFor: 'Restaurants, Cafes, Fashion brands, Salons, Gyms, Coaches, Local businesses'
     },
@@ -883,14 +885,14 @@ const Packages = ({ onSelectPackage }: { onSelectPackage: (service: string, pack
         '✅ Ad budget support included up to ₹2,000 for the first campaign',
         '✅ Designed to test audience response & improve initial reach',
         '⚠️ Additional ad spend beyond introductory campaign will be billed separately.',
-        'Expected Platform & Business Impact',
-        '✔ Stronger digital visibility among your target audience',
-        '✔ Increased customer inquiries through social platforms',
-        '✔ Better reach for offers, products & promotions',
-        '✔ Higher audience attention through strategic paid campaigns',
-        '✔ Improved trust through consistent branded content',
-        '✔ More opportunities for customer interaction & conversion',
-        '✔ Consistent online presence that supports long-term business growth'
+        'Expected Growth & Audience Impact',
+        '✔ Expanded reach through targeted promotional campaigns',
+        '✔ Increased inquiry opportunities from interested local audiences',
+        '✔ Better exposure for launches, offers & promotional activities',
+        '✔ Improved customer engagement through strategic paid visibility',
+        '✔ Stronger audience response across selected social platforms',
+        '✔ More discoverability among potential customers in your area',
+        '✔ Better campaign-driven traffic toward your business channels'
       ],
       bestFor: 'Businesses focused on customer growth, lead generation, and paid campaigns.'
     },
@@ -935,14 +937,14 @@ const Packages = ({ onSelectPackage }: { onSelectPackage: (service: string, pack
         '✅ Includes one ₹4500 launch campaign support credit for initial audience reach & testing.',
         '⚠️ Ad spend beyond the introductory campaign is billed separately.',
         '⚠️ Influencer costs, venue costs & event production expenses are not included.',
-        'Expected Platform & Business Impact',
-        '✔ Stronger visibility among your target audience',
-        '✔ Increased inquiry opportunities through strategic campaigns',
-        '✔ Better reach for products, services & promotional offers',
-        '✔ Improved customer trust through premium branded content',
-        '✔ Stronger local market presence & brand recall',
-        '✔ Higher audience attention through consistent campaign activity',
-        '✔ Improved digital positioning for long-term business growth'
+        'Expected Brand & Market Impact',
+        '✔ Stronger competitive positioning within your local market',
+        '✔ Higher customer acquisition potential through performance-focused campaigns',
+        '✔ Improved brand recall through premium multi-channel visibility',
+        '✔ Better conversion opportunities from strategically targeted audiences',
+        '✔ Increased authority and credibility through high-end brand presentation',
+        '✔ Stronger long-term audience retention through integrated campaign activity',
+        '✔ Enhanced business growth support through combined branding, advertising & promotional strategy'
       ],
       bestFor: 'Established businesses aiming to become a recognized local leader.'
     }
