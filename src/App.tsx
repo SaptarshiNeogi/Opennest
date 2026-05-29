@@ -446,9 +446,9 @@ const Hero = () => {
           className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6"
         >
           {[
-            { label: 'Brands helped', value: '10+', icon: <Users size={20} className="text-accent" /> },
-            { label: 'Reels created', value: '50+', icon: <Film size={20} className="text-accent" /> },
-            { label: 'Social reach', value: '2M+', icon: <Zap size={20} className="text-accent" /> },
+            { label: 'Brands helped', value: '30+', icon: <Users size={20} className="text-accent" /> },
+            { label: 'Reels created', value: '500+', icon: <Film size={20} className="text-accent" /> },
+            { label: 'Social reach', value: '30M+', icon: <Zap size={20} className="text-accent" /> },
           ].map((stat, i) => (
             <div key={i} className="glass-panel p-4 md:p-6 flex items-center gap-4 hover:bg-white/10 transition-colors group">
               <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-accent/10 flex items-center justify-center group-hover:scale-110 transition-transform">
