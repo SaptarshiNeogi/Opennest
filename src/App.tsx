@@ -409,12 +409,12 @@ const Hero = () => {
       {/* Video Background */}
       <div className="relative md:absolute md:inset-0 z-0 flex flex-col w-full bg-black">
         <div className="h-20 md:hidden" /> {/* Spacer for mobile header */}
-        <div className="relative h-[60vh] md:h-full md:flex-1 overflow-hidden">
+        <div className="relative w-full aspect-video md:h-full md:flex-1 overflow-hidden">
           <video 
             autoPlay 
             muted 
             playsInline
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain md:object-cover"
             onEnded={(e) => (e.currentTarget.pause())}
           >
             <source src="https://res.cloudinary.com/di2oqwgqv/video/upload/v1780261339/IMG_5020_b82pe0.mp4" type="video/mp4" />
