@@ -424,12 +424,12 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="relative z-20 text-center px-6 py-12 md:py-0 md:pb-10 max-w-5xl w-full bg-black md:bg-transparent">
+      <div className="relative z-20 text-center px-6 py-12 md:py-0 md:pb-10 max-w-5xl w-full bg-black md:bg-transparent flex flex-col gap-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="-mt-14 md:mt-0 mb-12 relative z-30"
+          className="order-2 md:order-1 mt-2 md:-mt-14 md:mt-0 relative z-30"
         >
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <a href="#contact" className="btn-secondary w-full sm:w-auto border-white/20 hover:border-accent hover:text-accent transition-all backdrop-blur-md bg-white/5">
@@ -443,22 +443,22 @@ const Hero = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6"
+          className="order-1 md:order-2 grid grid-cols-3 gap-2 md:gap-6"
         >
           {[
             { label: 'Brands helped', value: '30+', icon: <Users size={20} className="text-accent" /> },
             { label: 'Reels created', value: '500+', icon: <Film size={20} className="text-accent" /> },
             { label: 'Social reach', value: '30M+', icon: <Zap size={20} className="text-accent" /> },
           ].map((stat, i) => (
-            <div key={i} className="glass-panel p-4 md:p-6 flex items-center gap-4 hover:bg-white/10 transition-colors group">
-              <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-accent/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+            <div key={i} className="glass-panel p-2.5 md:p-6 flex flex-col md:flex-row items-center gap-2 md:gap-4 hover:bg-white/10 transition-colors group justify-center md:justify-start">
+              <div className="w-8 h-8 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-accent/10 flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
                 {stat.icon}
               </div>
-              <div className="text-left">
-                <div className="text-xl md:text-2xl font-bold font-display">
+              <div className="text-center md:text-left">
+                <div className="text-base md:text-2xl font-bold font-display leading-tight">
                   <Counter value={stat.value} />
                 </div>
-                <div className="text-[10px] md:text-xs text-white/50 uppercase tracking-wider">{stat.label}</div>
+                <div className="text-[7px] sm:text-[9px] md:text-xs text-white/50 uppercase tracking-widest leading-none mt-1">{stat.label}</div>
               </div>
             </div>
           ))}
