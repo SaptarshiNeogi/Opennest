@@ -366,7 +366,7 @@ const Navbar = () => {
                 <a href="https://www.instagram.com/opennest.studio/" target="_blank" rel="noopener noreferrer">
                   <Instagram className="text-white/70 hover:text-accent cursor-pointer transition-colors" />
                 </a>
-                <a href="https://wa.me/919641424318" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/919477683448" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="text-white/70 hover:text-accent cursor-pointer transition-colors" />
                 </a>
               </div>
@@ -529,7 +529,7 @@ const About = () => {
   );
 };
 
-const Services = ({ onSelectVisibility }: { onSelectVisibility: () => void }) => {
+const Services = () => {
   const services = [
     {
       title: 'Website Development',
@@ -602,7 +602,6 @@ const Services = ({ onSelectVisibility }: { onSelectVisibility: () => void }) =>
         </div>
         <a 
           href="#contact" 
-          onClick={onSelectVisibility}
           className="glow-btn relative z-10 bg-white text-accent px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform whitespace-nowrap"
         >
           Inquire Now
@@ -714,407 +713,52 @@ const Process = () => {
   );
 };
 
-const Packages = ({ onSelectPackage }: { onSelectPackage: (service: string, pack: string) => void }) => {
-  const [activeTab, setActiveTab] = useState<'shoot' | 'monthly'>('shoot');
-
-  const shootPacks = [
-    {
-      name: 'Starter Package',
-      price: '₹1,999',
-      billing: '',
-      description: 'Quick guided content shoot and promotional short-form video for local businesses.',
-      recommended: false,
-      features: [
-        'What’s Included',
-        '✅ 1 Edited Promotional Reel',
-        '✅ 8 Professionally Edited Images',
-        '✅ 1 Content Shoot Session (Up to 60 Minutes)',
-        '✅ Guided social media content shoot',
-        '✅ Product, Ambience & Brand Coverage',
-        '✅ Platform-Optimized Editing',
-        '✅ Color Correction & Audio Enhancement',
-        '✅ Vertical Content Format for Reels/Shorts',
-        '✅ Delivery Within 3–4 Working Days',
-        'Expected Content Impact',
-        '✔ Better visual presentation for your business',
-        '✔ Fresh promotional content for social platforms',
-        '✔ Improved brand appearance online',
-        '✔ More engaging short-form visual content',
-        '✔ Platform-ready assets for marketing & promotions',
-        '⚠️ Travel costs outside the service area may be billed separately.',
-        '⚠️ Complex commercial production requirements are not included in this package.'
-      ],
-      bestFor: 'Cafes & Restaurants, Clothing Brands, Salons & Studios, Gyms & Fitness Spaces, Product Launches, Businesses needing fresh social media content.'
-    },
-    {
-      name: 'Growth Package',
-      price: '₹3,999',
-      billing: '',
-      description: 'Cinematic reel content and premium photos with creative direction included.',
-      recommended: true,
-      features: [
-        '✅ 2 Cinematic Reels (optimized for reach & engagement)',
-        '✅ 10 Professionally Edited Photos',
-        '✅ Creative Direction Included (pose guidance, shot planning)',
-        '✅ Professional Shoot Experience (lighting, framing)',
-        '✅ Advanced Editing & Color Grading (cinematic look)',
-        '✅ 1 Revision Included',
-        '✅ Delivery Within 3–5 Days',
-        'Bonus Features',
-        '✅ Instagram-optimized export',
-        '✅ Trend-based reel editing',
-        '✅ Brand-focused color tone',
-        '✅ Shot planning assistance',
-        '✅ Viral-style pacing',
-        '✅ Thumbnail frame selection',
-        'What This Package Helps You Achieve',
-        '✔ Look more professional online',
-        '✔ Build audience trust',
-        '✔ Increase social media engagement',
-        '✔ Stay consistent with content',
-        '✔ Create a premium brand image',
-        '⚠️ Limited shoots accepted every week.'
-      ],
-      bestFor: 'Personal brands, Cafes & restaurants, Clothing brands, Fitness creators, Startups, Businesses wanting consistent social media content.'
-    },
-    {
-      name: 'Premium Package',
-      price: '₹5,499',
-      billing: '',
-      description: 'Top-tier cinematic brand visuals and premium reels package.',
-      recommended: false,
-      features: [
-        'Included',
-        '✔ 5 Cinematic Reels',
-        '✔ 15 Premium Edited Photos',
-        '✔ Creative Direction & Pose Guidance',
-        '✔ Professional Cinematic Shoot',
-        '✔ Advanced Editing & Color Grading',
-        '✔ Instagram-Optimized Delivery',
-        '✔ 3 Revisions Included',
-        '✔ Delivery Within 10–15 Days',
-        'Results You Can Expect',
-        '✔ Stronger online presence',
-        '✔ Premium brand identity',
-        '✔ More engaging content',
-        '✔ Higher audience trust',
-        '⚠️ Limited premium slots available every month.'
-      ],
-      bestFor: 'Brands, creators & businesses looking for premium social media content and cinematic brand visuals.'
-    }
-  ];
-
-  const monthlyPacks = [
-    {
-      name: '🥈 SILVER — Starter Presence',
-      price: '₹14,999',
-      billing: '/ month',
-      description: 'Perfect for businesses starting their online presence.',
-      recommended: false,
-      features: [
-        '✅ 6 High-Performance Reels',
-        '✅ 8 Branded Social Creatives',
-        '✅ Story Content Support',
-        '✅ Professional Monthly Shoot (2 hrs)',
-        'Strategy & Optimization',
-        '✅ Monthly Content Strategy',
-        '✅ Trend & Competitor Research',
-        '✅ Hook & Caption Copywriting',
-        '✅ SEO Hashtag Optimization',
-        'Account Management',
-        '✅ Content Scheduling & Publishing',
-        '✅ Instagram Page Management',
-        '✅ Audience Engagement Support',
-        '✅ Monthly Performance Analytics',
-        'Expected Platform Presence Impact',
-        '✔ More active and professional-looking social media presence',
-        '✔ Better consistency in showcasing products, services & offers',
-        '✔ Improved visibility among nearby and existing audiences',
-        '✔ Stronger first impression for potential customers online',
-        '✔ Increased familiarity through regular branded content',
-        '✔ Better audience connection through consistent platform activity',
-        '✔ Reliable digital presence that keeps your business visible and updated'
-      ],
-      bestFor: 'Restaurants, Cafes, Fashion brands, Salons, Gyms, Coaches, Local businesses'
-    },
-    {
-      name: '🥇 GOLD — Growth Marketing',
-      price: '₹24,999',
-      billing: '/ month',
-      description: 'Built for businesses that want more customers and stronger engagement.',
-      recommended: true,
-      features: [
-        'Choose Your Primary Platform',
-        '✅ Instagram + WhatsApp Support OR Facebook + WhatsApp Support',
-        'What’s Included',
-        'Platform Management',
-        '✅ Full Management of ONE Primary Platform (Instagram OR Facebook)',
-        '✅ Content Scheduling & Publishing',
-        '✅ Profile/Page Optimization',
-        '✅ Audience Engagement Monitoring',
-        'Content Production',
-        '✅ 8 High-Performance Reels/Short Videos',
-        '✅ 16 Branded Content Assets',
-        '✅ Story Content Support',
-        '✅ Promotional Campaign Creatives',
-        '✅ 2 Professional Shoot Sessions/month',
-        'Strategy & Organic Growth',
-        '✅ Monthly Content Strategy',
-        '✅ Competitor & Trend Research',
-        '✅ Audience-Focused Content Planning',
-        '✅ Hook & Caption Copywriting',
-        '✅ Platform Discoverability Optimization',
-        'Paid Advertising Support',
-        '✅ Meta Ads Campaign Setup',
-        '✅ Local Audience Targeting',
-        '✅ Lead & Inquiry Campaign Management',
-        '✅ Ad Creative Optimization',
-        '✅ Campaign Performance Monitoring',
-        '✅ Monthly Ad Performance Insights',
-        'WhatsApp Conversion Support',
-        '✅ WhatsApp Business Integration',
-        '✅ Click-to-WhatsApp Funnel Setup',
-        '✅ Inquiry Flow Optimization',
-        '✅ Broadcast Campaign Assistance',
-        'Analytics & Optimization',
-        '✅ Weekly Performance Tracking',
-        '✅ Monthly Growth & Campaign Reports',
-        '✅ Strategy Optimization Based on Insights',
-        'Introductory Campaign support',
-        '✅ Includes setup & management of one introductory paid campaign',
-        '✅ Ad budget support included up to ₹2,000 for the first campaign',
-        '✅ Designed to test audience response & improve initial reach',
-        '⚠️ Additional ad spend beyond introductory campaign will be billed separately.',
-        'Expected Growth & Audience Impact',
-        '✔ Expanded reach through targeted promotional campaigns',
-        '✔ Increased inquiry opportunities from interested local audiences',
-        '✔ Better exposure for launches, offers & promotional activities',
-        '✔ Improved customer engagement through strategic paid visibility',
-        '✔ Stronger audience response across selected social platforms',
-        '✔ More discoverability among potential customers in your area',
-        '✔ Better campaign-driven traffic toward your business channels'
-      ],
-      bestFor: 'Businesses focused on customer growth, lead generation, and paid campaigns.'
-    },
-    {
-      name: '💎 DIAMOND — Premium Brand Growth',
-      price: '₹39,999',
-      billing: '/ month',
-      description: 'Complete marketing control for serious brands.',
-      recommended: false,
-      features: [
-        'Platform Management',
-        '✅ Strategic Management of Selected Social Platforms',
-        '✅ Content Scheduling & Publishing',
-        '✅ Audience Engagement Monitoring',
-        '✅ Profile & Platform Optimization',
-        'Content & Creative Production',
-        '✅ 10 High-Performance Reels/Short Videos',
-        '✅ 20 Branded Content Assets',
-        '✅ Campaign-Focused Creative Design',
-        '✅ Story Content Support',
-        '✅ 3 Professional Shoot Sessions/month',
-        '✅ Cinematic Product & Brand Shoots',
-        'Performance Marketing',
-        '✅ Meta Ads Campaign Management',
-        '✅ Lead & Conversion Campaign Setup',
-        '✅ Audience Targeting & Retargeting',
-        '✅ Ad Creative Optimization',
-        '✅ Campaign Performance Monitoring',
-        'Brand Growth Support',
-        '✅ Google Business Profile Optimization',
-        '✅ Promotional Campaign Strategy',
-        '✅ Influencer Collaboration Coordination (Influencer fees separate)',
-        '✅ Reputation & Review Monitoring Support',
-        'Event Activation Support',
-        '✅ One Promotional Brand Event Coordination Support (if required during engagement period)',
-        'Strategy & Reporting',
-        '✅ Monthly Growth Strategy Planning',
-        '✅ Weekly Performance Tracking',
-        '✅ Monthly Analytics & Campaign Reporting',
-        '✅ Optimization Based on Campaign Insights',
-        'Introductory Campaign Support',
-        '✅ Includes one ₹4500 launch campaign support credit for initial audience reach & testing.',
-        '⚠️ Ad spend beyond the introductory campaign is billed separately.',
-        '⚠️ Influencer costs, venue costs & event production expenses are not included.',
-        'Expected Brand & Market Impact',
-        '✔ Stronger competitive positioning within your local market',
-        '✔ Higher customer acquisition potential through performance-focused campaigns',
-        '✔ Improved brand recall through premium multi-channel visibility',
-        '✔ Better conversion opportunities from strategically targeted audiences',
-        '✔ Increased authority and credibility through high-end brand presentation',
-        '✔ Stronger long-term audience retention through integrated campaign activity',
-        '✔ Enhanced business growth support through combined branding, advertising & promotional strategy'
-      ],
-      bestFor: 'Established businesses aiming to become a recognized local leader.'
-    }
-  ];
-
-  const currentPacks = activeTab === 'shoot' ? shootPacks : monthlyPacks;
-
+const Packages = () => {
   return (
-    <section id="packages" className="section-padding relative">
-      <div className="text-center mb-12">
-        <h2 className="text-4xl md:text-6xl font-display font-bold mb-6">Choose Your Nest</h2>
-        <p className="text-white/50 max-w-2xl mx-auto">
-          Tailored packages designed to fit your brand's current stage and growth goals.
-        </p>
+    <section id="packages" className="section-padding relative overflow-hidden bg-primary">
+      {/* Decorative gradient glowing orb */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/40 blur-[150px] rounded-full" />
       </div>
 
-      {/* Styled Toggle Switch */}
-      <div className="flex justify-center mb-16">
-        <div className="bg-white/5 border border-white/10 rounded-full p-1.5 flex gap-2 relative z-10 backdrop-blur-md">
-          <button
-            onClick={() => setActiveTab('shoot')}
-            className={`px-8 py-3 rounded-full text-sm font-bold transition-all duration-300 relative ${
-              activeTab === 'shoot'
-                ? 'bg-accent text-white shadow-[0_0_20px_var(--color-accent-glow)] scale-105'
-                : 'text-white/50 hover:text-white'
-            }`}
+      <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="glass-panel p-10 md:p-16 border border-white/10 flex flex-col items-center justify-center text-center shadow-[0_0_50px_rgba(255,106,0,0.08)] rounded-3xl"
+        >
+          <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mb-8 animate-pulse">
+            <MessageCircle size={32} className="text-accent" />
+          </div>
+
+          <h2 className="text-4xl md:text-6xl font-display font-bold mb-6 tracking-tight text-white">
+            Choose Your Nest
+          </h2>
+          
+          <p className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+            Ready to explore tailored options designed to fit your brand's stage and scale your digital presence? Reach out to us directly over WhatsApp to design a customized visibility roadmap.
+          </p>
+
+          <motion.a
+            href="https://wa.me/919477683448?text=Hello%F0%9F%91%8B"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+            className="glow-btn bg-accent text-white px-10 py-5 rounded-full font-bold text-lg inline-flex items-center gap-3 transition-all duration-300 shadow-[0_4px_25px_rgba(255,106,0,0.3)] hover:shadow-[0_4px_35px_rgba(255,106,0,0.5)] cursor-pointer"
           >
-            Shoot Packages
-          </button>
-          <button
-            onClick={() => setActiveTab('monthly')}
-            className={`px-8 py-3 rounded-full text-sm font-bold transition-all duration-300 flex items-center gap-2 relative ${
-              activeTab === 'monthly'
-                ? 'bg-accent text-white shadow-[0_0_20px_var(--color-accent-glow)] scale-105'
-                : 'text-white/50 hover:text-white'
-            }`}
-          >
-            Monthly Marketing
-            <span className={`text-[10px] px-2 py-0.5 rounded-full font-extrabold ${
-              activeTab === 'monthly' ? 'bg-white/20 text-white' : 'bg-accent/20 text-accent'
-            }`}>
-              New
-            </span>
-          </button>
-        </div>
-      </div>
-
-      {/* Animated Packages Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-        {currentPacks.map((pack, i) => (
-          <motion.div
-            key={`${activeTab}-${i}`}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            className={`glass-panel p-10 flex flex-col relative transition-all duration-300 ${
-              pack.recommended ? 'border-accent shadow-[0_0_30px_rgba(255,106,0,0.15)] md:scale-[1.03] z-10' : ''
-            }`}
-          >
-            {pack.recommended && (
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest">
-                Recommended
-              </div>
-            )}
-            
-            <h3 className="text-2xl font-display font-bold mb-3">{pack.name}</h3>
-            
-            {pack.description && (
-              <p className="text-white/60 text-sm mb-6 min-h-[44px] leading-relaxed">
-                {pack.description}
-              </p>
-            )}
-
-            <div className="flex items-baseline gap-1.5 mb-8 border-b border-white/5 pb-6">
-              <span className="text-accent text-4xl font-bold font-display">{pack.price}</span>
-              {pack.billing && (
-                <span className="text-white/40 text-sm font-medium">{pack.billing}</span>
-              )}
-            </div>
-
-            <ul className="space-y-3.5 mb-8 flex-grow overflow-y-auto max-h-[380px] pr-2 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
-              {pack.features.map((f, idx) => {
-                // Determine if item is a group header
-                const isHeader = !f.startsWith('✅') && !f.startsWith('✔') && !f.startsWith('⚠️') && !f.includes('OR');
-                
-                if (isHeader) {
-                  return (
-                    <li key={idx} className="pt-5 pb-1 object-cover border-b border-white/5 first:pt-0">
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-accent">{f}</span>
-                    </li>
-                  );
-                }
-
-                let icon = <CheckCircle2 size={16} className="text-accent shrink-0 mt-0.5" />;
-                let textClass = "text-white/70";
-                let cleanText = f;
-
-                if (f.startsWith('✅')) {
-                  cleanText = f.replace(/^✅\s*/, '');
-                } else if (f.startsWith('✔')) {
-                  icon = <span className="text-emerald-400 shrink-0 mt-0.5 font-bold text-sm">✓</span>;
-                  textClass = "text-emerald-400/90 font-medium";
-                  cleanText = f.replace(/^✔\s*/, '');
-                } else if (f.startsWith('⚠️')) {
-                  icon = <span className="text-amber-400 shrink-0 mt-0.5 font-bold text-sm">⚠</span>;
-                  textClass = "text-white/50 italic text-xs";
-                  cleanText = f.replace(/^⚠️\s*/, '');
-                }
-
-                return (
-                  <li key={idx} className="flex items-start gap-2.5 text-sm">
-                    {icon}
-                    <span className={textClass}>{cleanText}</span>
-                  </li>
-                );
-              })}
-            </ul>
-
-            {pack.bestFor && (
-              <div className="pt-6 border-t border-white/5 mb-6">
-                <span className="text-[10px] text-accent font-bold uppercase tracking-widest block mb-2">Best For</span>
-                <p className="text-white/70 text-xs leading-relaxed font-medium">{pack.bestFor}</p>
-              </div>
-            )}
-
-            <a
-              href="#contact"
-              onClick={() => {
-                let service = '';
-                let subPack = '';
-                if (activeTab === 'shoot') {
-                  service = 'Shoot packages';
-                  if (pack.name.includes('Starter')) subPack = 'Starter package';
-                  else if (pack.name.includes('Growth')) subPack = 'Growth package';
-                  else if (pack.name.includes('Premium')) subPack = 'Premium package';
-                } else {
-                  service = 'Monthly marketing';
-                  if (pack.name.includes('SILVER')) subPack = 'Silver';
-                  else if (pack.name.includes('GOLD')) subPack = 'Gold';
-                  else if (pack.name.includes('DIAMOND')) subPack = 'Diamond';
-                }
-                onSelectPackage(service, subPack);
-              }}
-              className={`glow-btn w-full py-4 rounded-xl font-bold transition-all text-center ${
-                pack.recommended
-                  ? 'bg-accent text-white hover:bg-accent/90 shadow-[0_4px_15px_rgba(255,106,0,0.2)]'
-                  : 'bg-white/10 text-white hover:bg-white/20'
-              }`}
-            >
-              Select Package
-            </a>
-          </motion.div>
-        ))}
+            <MessageCircle size={20} />
+            Contact Us
+          </motion.a>
+        </motion.div>
       </div>
     </section>
   );
 };
 
-const Contact = ({ 
-  selectedService, 
-  selectedPackage, 
-  setSelectedService, 
-  setSelectedPackage 
-}: { 
-  selectedService: string; 
-  selectedPackage: string;
-  setSelectedService: (service: string) => void;
-  setSelectedPackage: (pack: string) => void;
-}) => {
+const Contact = () => {
   return (
     <section id="contact" className="section-padding">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -1139,7 +783,7 @@ const Contact = ({
               <span>@opennest.studio</span>
             </a>
             <a 
-              href="https://wa.me/919641424318" 
+              href="https://wa.me/919477683448" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center gap-4 text-white/80 hover:text-accent transition-colors group"
@@ -1147,7 +791,7 @@ const Contact = ({
               <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-accent group-hover:bg-accent/10 transition-colors">
                 <MessageCircle size={24} />
               </div>
-              <span>+91 96414 24318</span>
+              <span>+91 94776 83448</span>
             </a>
           </div>
         </div>
@@ -1156,115 +800,28 @@ const Contact = ({
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="glass-panel p-10"
+          className="glass-panel p-10 md:p-16 flex flex-col items-center justify-center text-center shadow-[0_0_50px_rgba(255,106,0,0.08)]"
         >
-          <form action="https://formspree.io/f/xbdzodek" method="POST" className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-white/50">Name</label>
-                <input name="name" type="text" required className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-accent outline-none transition-colors text-white" placeholder="Your Name" />
-              </div>
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-white/50">Business Name</label>
-                <input name="business" type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-accent outline-none transition-colors text-white" placeholder="Your Business" />
-              </div>
-            </div>
-            
-            <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-widest text-white/50">Service Needed</label>
-              <div className="relative">
-                <select 
-                  name="service" 
-                  value={selectedService || 'Shoot packages'} 
-                  onChange={(e) => {
-                    const val = e.target.value;
-                    setSelectedService(val);
-                    if (val === 'Visibility package') {
-                      setSelectedPackage('');
-                    } else if (val === 'Shoot packages') {
-                      setSelectedPackage('Starter package');
-                    } else if (val === 'Monthly marketing') {
-                      setSelectedPackage('Silver');
-                    }
-                  }}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-accent outline-none transition-colors appearance-none text-white cursor-pointer pr-10"
-                >
-                  <option value="Shoot packages" className="bg-primary text-white">Shoot packages</option>
-                  <option value="Monthly marketing" className="bg-primary text-white">Monthly marketing</option>
-                  <option value="Visibility package" className="bg-primary text-white">Visibility package</option>
-                </select>
-                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-white/50">
-                  <ChevronDown size={18} />
-                </div>
-              </div>
-            </div>
+          <div className="w-20 h-20 rounded-full bg-accent/10 flex items-center justify-center mb-8 animate-pulse">
+            <MessageCircle size={40} className="text-accent" />
+          </div>
+          
+          <h3 className="text-3xl font-display font-bold mb-4 text-white">Let's Collab</h3>
+          <p className="text-white/60 mb-8 max-w-sm">
+            Stop settling for average🙅. Get the growth🤩 you deserve. Click "Grow Now" 📈.
+          </p>
 
-            <AnimatePresence mode="wait">
-              {selectedService === 'Shoot packages' && (
-                <motion.div 
-                  key="shoot"
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="space-y-2"
-                >
-                  <label className="text-xs font-bold uppercase tracking-widest text-white/50">Package Type</label>
-                  <div className="relative">
-                    <select 
-                      name="package" 
-                      value={selectedPackage || 'Starter package'} 
-                      onChange={(e) => setSelectedPackage(e.target.value)}
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-accent outline-none transition-colors appearance-none text-white cursor-pointer pr-10"
-                    >
-                      <option value="Starter package" className="bg-primary text-white">Starter package</option>
-                      <option value="Growth package" className="bg-primary text-white">Growth package</option>
-                      <option value="Premium package" className="bg-primary text-white">Premium package</option>
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-white/50">
-                      <ChevronDown size={18} />
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-
-              {selectedService === 'Monthly marketing' && (
-                <motion.div 
-                  key="monthly"
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="space-y-2"
-                >
-                  <label className="text-xs font-bold uppercase tracking-widest text-white/50">Package Type</label>
-                  <div className="relative">
-                    <select 
-                      name="package" 
-                      value={selectedPackage || 'Silver'} 
-                      onChange={(e) => setSelectedPackage(e.target.value)}
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-accent outline-none transition-colors appearance-none text-white cursor-pointer pr-10"
-                    >
-                      <option value="Silver" className="bg-primary text-white">Silver</option>
-                      <option value="Gold" className="bg-primary text-white">Gold</option>
-                      <option value="Diamond" className="bg-primary text-white">Diamond</option>
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-white/50">
-                      <ChevronDown size={18} />
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-
-            <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-widest text-white/50">Phone / WhatsApp</label>
-              <input name="phone" type="tel" required className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-accent outline-none transition-colors text-white" placeholder="+91 ..." />
-            </div>
-            <button type="submit" className="btn-primary w-full mt-4">
-              Submit
-            </button>
-          </form>
+          <motion.a
+            href="https://wa.me/919477683448?text=Hello%F0%9F%91%8B"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+            className="glow-btn bg-accent text-white px-10 py-5 rounded-full font-bold text-lg inline-flex items-center gap-3 transition-all duration-300 shadow-[0_4px_25px_rgba(255,106,0,0.3)] hover:shadow-[0_4px_35px_rgba(255,106,0,0.5)] cursor-pointer w-full justify-center max-w-xs"
+          >
+            <MessageCircle size={22} className="shrink-0" />
+            Grow Now
+          </motion.a>
         </motion.div>
       </div>
     </section>
@@ -1398,32 +955,18 @@ const FAQ = () => {
 // --- Main App ---
 
 const LandingPage = () => {
-  const [selectedService, setSelectedService] = useState<string>('Shoot packages');
-  const [selectedPackage, setSelectedPackage] = useState<string>('Starter package');
-
   return (
     <div className="bg-primary min-h-screen overflow-x-hidden">
       <Navbar />
       <Hero />
       <About />
-      <Services onSelectVisibility={() => {
-        setSelectedService('Visibility package');
-        setSelectedPackage('');
-      }} />
+      <Services />
       <Portfolio />
       <Process />
       <CreativeShowcase />
-      <Packages onSelectPackage={(service, pack) => {
-        setSelectedService(service);
-        setSelectedPackage(pack);
-      }} />
+      <Packages />
       <FAQ />
-      <Contact 
-        selectedService={selectedService}
-        selectedPackage={selectedPackage}
-        setSelectedService={setSelectedService}
-        setSelectedPackage={setSelectedPackage}
-      />
+      <Contact />
       <Footer />
     </div>
   );
