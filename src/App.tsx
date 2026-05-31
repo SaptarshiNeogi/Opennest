@@ -421,7 +421,6 @@ const Hero = () => {
           </video>
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-transparent to-primary/80 z-10 hidden md:block" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black z-10 md:hidden" />
         </div>
       </div>
 
@@ -430,7 +429,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="mb-12"
+          className="-mt-14 md:mt-0 mb-12 relative z-30"
         >
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <a href="#contact" className="btn-secondary w-full sm:w-auto border-white/20 hover:border-accent hover:text-accent transition-all backdrop-blur-md bg-white/5">
