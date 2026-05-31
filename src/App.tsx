@@ -432,7 +432,12 @@ const Hero = () => {
           className="order-2 md:order-1 mt-2 md:-mt-14 md:mt-0 relative z-30"
         >
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <a href="#contact" className="btn-secondary w-full sm:w-auto border-white/20 hover:border-accent hover:text-accent transition-all backdrop-blur-md bg-white/5">
+            <a 
+              href="https://wa.me/919477683448?text=Hello%F0%9F%91%8B" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn-secondary w-full sm:w-auto border-white/20 hover:border-accent hover:text-accent transition-all backdrop-blur-md bg-white/5"
+            >
               Book Now
             </a>
           </div>
