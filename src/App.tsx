@@ -4,7 +4,8 @@ import { BrowserRouter, Routes, Route, Link, useParams, useNavigate, useLocation
 import { 
   Menu, X, ArrowRight, Globe, Camera, Video, 
   CheckCircle2, Instagram, MessageCircle, ChevronDown,
-  Star, Users, Film, Zap, Play, Calendar, Briefcase, Quote
+  Star, Users, Film, Zap, Play, Calendar, Briefcase, Quote,
+  Share2, Megaphone, TrendingUp, Sparkles
 } from 'lucide-react';
 
 // --- Data ---
@@ -416,7 +417,7 @@ const Hero = () => {
             className="w-full h-full object-cover"
             onEnded={(e) => (e.currentTarget.pause())}
           >
-            <source src="https://res.cloudinary.com/di2oqwgqv/video/upload/v1779781727/1779779927201007_sxxpwc_jonjr9.mp4" type="video/mp4" />
+            <source src="https://res.cloudinary.com/di2oqwgqv/video/upload/v1780261339/IMG_5020_b82pe0.mp4" type="video/mp4" />
           </video>
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-transparent to-primary/80 z-10 hidden md:block" />
@@ -424,7 +425,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="relative z-20 text-center px-6 py-12 md:py-0 md:pb-24 max-w-5xl w-full bg-black md:bg-transparent">
+      <div className="relative z-20 text-center px-6 py-12 md:py-0 md:pb-10 max-w-5xl w-full bg-black md:bg-transparent">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -548,6 +549,50 @@ const Services = () => {
       desc: 'Cinematic social media content creation that stops the scroll and builds engagement.',
       icon: <Video size={32} />,
       features: ['Reel Production', 'Product Videos', 'Cinematic Brand Stories', 'Trend-focused Editing']
+    },
+    {
+      title: 'Social Media Management',
+      desc: 'End-to-end management of your social channels to build presence and organic reach.',
+      icon: <Share2 size={32} />,
+      features: [
+        'Strategic Content Systems',
+        'Community Growth Management',
+        'Premium Content Planning',
+        'Performance Insights & Reporting'
+      ]
+    },
+    {
+      title: 'Ads & Campaign Management',
+      desc: 'High-impact paid campaigns across Meta and Google to drive immediate inquiries and sales.',
+      icon: <Megaphone size={32} />,
+      features: [
+        'Meta & Google Advertising',
+        'High-Converting Campaign Strategy',
+        'Lead Acquisition Systems',
+        'Campaign Optimization'
+      ]
+    },
+    {
+      title: 'Performance Marketing',
+      desc: 'Data-driven marketing and conversion rate optimization to scale your brand\'s revenue.',
+      icon: <TrendingUp size={32} />,
+      features: [
+        'Conversion Rate Optimization',
+        'Advanced Tracking & Analytics',
+        'Retargeting & Customer Journeys',
+        'Revenue Growth Strategy'
+      ]
+    },
+    {
+      title: 'Brand Building',
+      desc: 'Strategic positioning and visual storytelling to build market authority and long-term customer trust.',
+      icon: <Sparkles size={32} />,
+      features: [
+        'Brand Positioning & Strategy',
+        'Visual Identity Development',
+        'Brand Storytelling',
+        'Market Authority Building'
+      ]
     }
   ];
 
@@ -560,14 +605,14 @@ const Services = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {services.map((service, i) => (
           <motion.div
             key={i}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.2 }}
+            transition={{ delay: i * 0.1 }}
             className="glass-panel p-10 hover:border-accent/50 transition-all duration-500 group"
           >
             <div className="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center text-accent mb-8 group-hover:scale-110 transition-transform">
@@ -585,31 +630,6 @@ const Services = () => {
           </motion.div>
         ))}
       </div>
-
-      {/* Featured Package Callout */}
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-accent to-accent/80 p-12 text-white flex flex-col md:flex-row items-center justify-between gap-8"
-      >
-        <div className="relative z-10">
-          <span className="inline-block px-3 py-1 rounded-full bg-white/20 text-xs font-bold uppercase tracking-widest mb-4">Featured Service</span>
-          <h3 className="text-3xl md:text-4xl font-display font-bold mb-4">Social Media Visibility Package</h3>
-          <p className="text-white/90 max-w-xl">
-            The Working solution:  Photoshoot + Reels + Brand Visuals. Everything you need to launch or rebrand.
-          </p>
-        </div>
-        <a 
-          href="#contact" 
-          className="glow-btn relative z-10 bg-white text-accent px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform whitespace-nowrap"
-        >
-          Inquire Now
-        </a>
-        {/* Decorative Background Circles */}
-        <div className="absolute -right-20 -top-20 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
-        <div className="absolute -left-20 -bottom-20 w-64 h-64 bg-black/10 rounded-full blur-3xl" />
-      </motion.div>
     </section>
   );
 };
